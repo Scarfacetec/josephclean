@@ -116,6 +116,28 @@ footer a{color:#fff}
 .resultado .etiquetas span:last-child{background:var(--verde)}
 .resultado figcaption{padding:16px 20px;font-family:var(--titulo);font-size:1.2rem;color:var(--navy)}
 @media(max-width:620px){.resultados-grid{grid-template-columns:1fr;gap:20px}.resultados{padding:48px 0}}
+/* Apresentação e carrossel */
+.chamada{padding:40px 0 20px}
+.chamada-card{padding:clamp(24px,5vw,48px);border:1px solid #d5e8f8;border-radius:28px;background:linear-gradient(135deg,#fff,#e7f5ff);box-shadow:0 16px 44px rgba(10,42,102,.09)}
+.chamada h2{font-size:clamp(1.7rem,4vw,2.6rem)}
+.chamada h3{font-family:var(--titulo);font-size:1.4rem;margin:16px 0 12px}
+.chamada p{max-width:65ch}
+.beneficios{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:24px 0}
+.agendamento{margin-bottom:14px;font-weight:700}
+.carrossel-moldura{max-width:860px;margin:auto;padding:clamp(10px,2vw,20px);border-radius:30px;background:linear-gradient(135deg,var(--navy),var(--azul),var(--ciano));box-shadow:0 20px 50px rgba(10,42,102,.22)}
+.resultados-grid{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:20px;overscroll-behavior-x:contain}
+.resultados-grid::-webkit-scrollbar{display:none}
+.resultado{flex:0 0 100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always;border:0;box-shadow:none;border-radius:0}
+.resultado img{aspect-ratio:16/9}
+.resultado figcaption{text-align:center;background:#fff}
+.carrossel-controles{display:flex;align-items:center;justify-content:center;gap:18px;padding-top:16px;color:#fff}
+.carrossel-controles[hidden]{display:none}
+.carrossel-seta{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.6);background:rgba(255,255,255,.15);color:#fff;font-size:1.6rem;cursor:pointer}
+.carrossel-seta:hover{background:var(--navy)}
+.carrossel-pontos{display:flex;gap:10px}
+.carrossel-pontos button{width:14px;height:14px;border-radius:50%;border:2px solid #fff;background:transparent;cursor:pointer;padding:0}
+.carrossel-pontos button[aria-current="true"]{background:#fff}
+@media(max-width:620px){.beneficios{grid-template-columns:1fr}.resultados{padding-top:36px}.resultado img{aspect-ratio:4/3}.carrossel-moldura{border-radius:24px}}
 </style>
 </head>
 <body>
@@ -170,11 +192,30 @@ footer a{color:#fff}
     </div>
   </section>
 
+  <section class="chamada" aria-labelledby="titulo-chamada">
+    <div class="wrap">
+      <div class="chamada-card">
+        <h2 id="titulo-chamada">✨ SEU ESTOFADO NOVO DE NOVO! ✨</h2>
+        <h3>🛋️ Higienização Profunda de Estofados</h3>
+        <p>Removemos sujeira, manchas, odores e resíduos acumulados, devolvendo a limpeza e o aspecto renovado ao seu sofá!</p>
+        <ul class="beneficios">
+          <li>✅ Higienização profissional</li>
+          <li>✅ Limpeza profunda</li>
+          <li>✅ Mais cuidado e conservação</li>
+          <li>✅ Atendimento com qualidade</li>
+        </ul>
+        <p class="agendamento">📲 Agende agora pelo WhatsApp:</p>
+        <a class="btn zap" href="https://wa.me/5585988874694?text=Ol%C3%A1%2C%20quero%20agendar%20uma%20higieniza%C3%A7%C3%A3o%20de%20estofados." target="_blank" rel="noopener">(85) 98887-4694</a>
+      </div>
+    </div>
+  </section>
+
   <section class="resultados" id="antes-e-depois" aria-labelledby="titulo-resultados">
     <div class="wrap">
       <h2 id="titulo-resultados">Antes e depois</h2>
       <p class="intro">Veja a diferença da higienização nos estofados.</p>
-      <div class="resultados-grid">
+      <div class="carrossel-moldura" role="region" aria-roledescription="carrossel" aria-label="Fotos de antes e depois">
+      <div class="resultados-grid" id="fotos-resultados" tabindex="0" aria-label="Fotos de antes e depois; use as setas do teclado ou deslize">
         <figure class="resultado">
           <div class="etiquetas" aria-hidden="true"><span>Antes</span><span>Depois</span></div>
           <div class="foto"><img src="ad1.png" alt="Comparação de uma poltrona cinza antes e depois da higienização; antes à esquerda e depois à direita" loading="lazy" decoding="async"></div>
@@ -195,6 +236,13 @@ footer a{color:#fff}
           <div class="foto"><img src="ad4.png" alt="Comparação da lateral de um sofá antes e depois da higienização; antes à esquerda e depois à direita" loading="lazy" decoding="async"></div>
           <figcaption>Sofá</figcaption>
         </figure>
+      </div>
+      <div class="carrossel-controles" hidden>
+        <button class="carrossel-seta" type="button" data-direcao="-1" aria-label="Foto anterior" aria-controls="fotos-resultados">‹</button>
+        <div class="carrossel-pontos"><button type="button" data-foto="0" aria-label="Ver foto 1 de 4" aria-controls="fotos-resultados" aria-current="true"></button><button type="button" data-foto="1" aria-label="Ver foto 2 de 4" aria-controls="fotos-resultados"></button><button type="button" data-foto="2" aria-label="Ver foto 3 de 4" aria-controls="fotos-resultados"></button><button type="button" data-foto="3" aria-label="Ver foto 4 de 4" aria-controls="fotos-resultados"></button></div>
+        <button class="carrossel-seta" type="button" data-direcao="1" aria-label="Próxima foto" aria-controls="fotos-resultados">›</button>
+        <span class="carrossel-status" role="status" aria-live="polite" aria-atomic="true">1 / 4</span>
+      </div>
       </div>
     </div>
   </section>
@@ -264,6 +312,40 @@ footer a{color:#fff}
 
 <a class="flutuante" href="https://wa.me/5585988874694" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">WhatsApp</a>
 
-<script>document.getElementById('ano').textContent=new Date().getFullYear();</script>
+<script>
+document.getElementById('ano').textContent=new Date().getFullYear();
+(() => {
+  const track=document.getElementById('fotos-resultados');
+  const controls=document.querySelector('.carrossel-controles');
+  const slides=Array.from(track.children);
+  const dots=Array.from(controls.querySelectorAll('[data-foto]'));
+  const status=controls.querySelector('.carrossel-status');
+  let active=0,frame;
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+  function update(){
+    active=Math.max(0,Math.min(slides.length-1,Math.round(track.scrollLeft/track.clientWidth)));
+    dots.forEach((dot,i)=>i===active?dot.setAttribute('aria-current','true'):dot.removeAttribute('aria-current'));
+    status.textContent=(active+1)+' / '+slides.length;
+  }
+  function go(index){
+    const next=(index+slides.length)%slides.length;
+    track.scrollTo({left:next*track.clientWidth,behavior:reduced.matches?'instant':'smooth'});
+  }
+  controls.hidden=false;
+  controls.addEventListener('click',event=>{
+    const button=event.target.closest('button');
+    if(!button)return;
+    if(button.hasAttribute('data-foto'))go(Number(button.dataset.foto));
+    else go(active+Number(button.dataset.direcao));
+  });
+  track.addEventListener('keydown',event=>{
+    if(event.key==='ArrowRight'||event.key==='ArrowLeft'){
+      event.preventDefault();go(active+(event.key==='ArrowRight'?1:-1));
+    }
+  });
+  track.addEventListener('scroll',()=>{cancelAnimationFrame(frame);frame=requestAnimationFrame(update);},{passive:true});
+  new ResizeObserver(()=>{track.scrollTo({left:active*track.clientWidth,behavior:'instant'});}).observe(track);
+})();
+</script>
 </body>
 </html>
