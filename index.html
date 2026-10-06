@@ -103,6 +103,19 @@ footer a{color:#fff}
 
 @media (max-width:620px){header nav{display:none}}
 @media (prefers-reduced-motion:reduce){.bolhas{display:none}html{scroll-behavior:auto}.btn{transition:none}}
+
+/* Resultados: preserva a comparação completa de cada fotografia. */
+.resultados{padding:64px 0;background:#fff}
+.resultados .intro{margin-bottom:28px}
+.resultados-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.resultado{overflow:hidden;border-radius:18px;background:var(--gelo);border:1px solid #dce9f5;box-shadow:0 6px 24px rgba(10,42,102,.08)}
+.resultado .foto{position:relative;background:#eaf2f8}
+.resultado img{width:100%;aspect-ratio:16/10;object-fit:contain;height:auto}
+.resultado .etiquetas{display:flex;justify-content:space-between;padding:12px 16px;font-size:.85rem;font-weight:700}
+.resultado .etiquetas span{border-radius:999px;padding:4px 14px;background:var(--navy);color:#fff}
+.resultado .etiquetas span:last-child{background:var(--verde)}
+.resultado figcaption{padding:16px 20px;font-family:var(--titulo);font-size:1.2rem;color:var(--navy)}
+@media(max-width:620px){.resultados-grid{grid-template-columns:1fr;gap:20px}.resultados{padding:48px 0}}
 </style>
 </head>
 <body>
@@ -154,6 +167,35 @@ footer a{color:#fff}
       <video controls muted loop playsinline preload="metadata" poster="logotipo.png">
         <source src="video.mp4" type="video/mp4">
       </video>
+    </div>
+  </section>
+
+  <section class="resultados" id="antes-e-depois" aria-labelledby="titulo-resultados">
+    <div class="wrap">
+      <h2 id="titulo-resultados">Antes e depois</h2>
+      <p class="intro">Veja a diferença da higienização nos estofados.</p>
+      <div class="resultados-grid">
+        <figure class="resultado">
+          <div class="etiquetas" aria-hidden="true"><span>Antes</span><span>Depois</span></div>
+          <div class="foto"><img src="ad1.png" alt="Comparação de uma poltrona cinza antes e depois da higienização; antes à esquerda e depois à direita" loading="lazy" decoding="async"></div>
+          <figcaption>Poltrona cinza</figcaption>
+        </figure>
+        <figure class="resultado">
+          <div class="etiquetas" aria-hidden="true"><span>Antes</span><span>Depois</span></div>
+          <div class="foto"><img src="ad2.png" alt="Comparação de um colchão antes e depois da higienização; antes à esquerda e depois à direita" loading="lazy" decoding="async"></div>
+          <figcaption>Colchão</figcaption>
+        </figure>
+        <figure class="resultado">
+          <div class="etiquetas" aria-hidden="true"><span>Antes</span><span>Depois</span></div>
+          <div class="foto"><img src="ad3.png" alt="Comparação de uma poltrona clara antes e depois da higienização; antes à esquerda e depois à direita" loading="lazy" decoding="async"></div>
+          <figcaption>Poltrona clara</figcaption>
+        </figure>
+        <figure class="resultado">
+          <div class="etiquetas" aria-hidden="true"><span>Antes</span><span>Depois</span></div>
+          <div class="foto"><img src="ad4.png" alt="Comparação da lateral de um sofá antes e depois da higienização; antes à esquerda e depois à direita" loading="lazy" decoding="async"></div>
+          <figcaption>Sofá</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
