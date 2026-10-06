@@ -1,0 +1,7 @@
+dist/
+node_modules/
+.env
+.env.*
+.wrangler/
+Screenshot_1.png
+snapinsta-*.mp4
