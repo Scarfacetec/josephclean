@@ -5,3 +5,8 @@ node_modules/
 .wrangler/
 Screenshot_1.png
 snapinsta-*.mp4
+
+originals/
+video-optimized.mp4
+video-vertical.mp4
+video-preview.jpg
